@@ -68,10 +68,14 @@ class BankAccount(object):
         self.balance -= w
         return self.balance
     
+    def deposit(self, d):
+        self.balance += d
+        return self.balance
 
 
-
-useraccount = BankAccount(12345689, "Fredy", 1000)
+useraccount = BankAccount(12345689, "Fredy", 0)
 useraccount.withdraw(700)
+useraccount.deposit(1000)
+useraccount.withdraw(500)
 
 print(f"Final balance: {useraccount.balance}")

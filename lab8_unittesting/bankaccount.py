@@ -1,6 +1,13 @@
+"""
+Fredy Perez Vicente
+Oct 6, 2025
+lab 8, unit test, bank account
+"""
+
 class BankAccount:
-    def __init__(self, owner, balance=0):
-        self.owner = owner
+    def __init__(self, user, pin, balance):
+        self.user = user
+        self.pin = pin
         self.balance = balance
 
     def deposit(self, amount):

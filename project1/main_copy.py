@@ -1,3 +1,8 @@
+"""
+Fredy Perez Vicente
+October 26, 2025
+Unit test for: drop_chip (Project 2 Part 2)
+"""
 # Improved Connect 4 Game
 import unittest
 

@@ -1,4 +1,5 @@
 # Improved Connect 4 Game
+import unittest
 
 class Connect4:
     ROWS = 6
@@ -31,7 +32,7 @@ class Connect4:
         if not (1 <= column <= self.COLS):
             return False
 
-        for row in range(self.ROWS - 7, -7, -7):
+        for row in range(self.ROWS - 1, -1, -1):
             if self.board[row][column - 1] == ' ':
                 self.board[row][column - 1] = self.current_player
                 return True
@@ -98,6 +99,51 @@ class Connect4:
 
             self.switch_player()
 
+# Unit tests for the drop_chip method in the Connect4 class
+class TestDropChip(unittest.TestCase):
+    def setUp(self):
+        self.game = Connect4()
+
+    # Successful chip drop test: Ensure that a chip is successfully dropped into an available column
+    def test_successful_chip_drop(self):
+        result = self.game.drop_chip(3)
+        self.assertTrue(result, "True for valid chip drop")
+        self.assertEqual(self.game.board[5][2], 'X', "Chip not placed correctly at bottom of column 3")
+
+    # Full column test: The method returns False when trying to drop into a full column
+    def test_full_column(self):
+        # Fill the first column completely
+        for _ in range(self.game.ROWS):
+            self.assertTrue(self.game.drop_chip(1))
+        # Now attempt to drop one more chip in the same column
+        result = self.game.drop_chip(1)
+        self.assertFalse(result, "False when column is already full")
+
+    # Invalid column test: Ensure that the method handles invalid column inputs properly
+    def test_invalid_column(self):
+        # Below valid range
+        self.assertFalse(self.game.drop_chip(0), "False for invalid column 0")
+        # Above valid range
+        self.assertFalse(self.game.drop_chip(8), "False for invalid column 8")
+    
+    # Full board test: Test how the game behaves when the board is full, and no more chips can be dropped
+    def test_full_board(self):
+        # Fill the entire board
+        for col in range(1, self.game.COLS + 1):
+            for _ in range(self.game.ROWS):
+                self.assertTrue(self.game.drop_chip(col))
+        # Dropping again anywhere
+        for col in range(1, self.game.COLS + 1):
+            self.assertFalse(self.game.drop_chip(col), f"False when board is full for column {col}")
 
 if __name__ == "__main__":
-    Connect4().play_game()
+    # Connect4().play_game()
+
+    # Running the unit test for drop_chip
+    unittest.main()
+
+# ---- RESULTS ----
+#
+# Ran 4 tests in 0.000s
+#
+# OK

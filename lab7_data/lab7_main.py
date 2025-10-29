@@ -33,3 +33,5 @@ count_yahoo = email_read("user_email.txt","@yahoo")
 count_gmail = email_read("user_email.txt","@gmail")
 count_hotmail = email_read("user_email.txt","@hotmail")
 
+new_file("reportemail.text")
+

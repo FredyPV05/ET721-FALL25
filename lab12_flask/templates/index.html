@@ -8,9 +8,29 @@
 </head>
 <body>
     <h1 class="title">Welcome to Flask Application</h1>
-    <h2 class="subtitle">By: Fredy Perez Vicente</h2>
+    <h2 class="subtitle">By: {{username}}</h2>
     <div class="introimg">
         <img src="../static/image1.jpg" alt="image of a mountain">
     </div>
+
+    <h1>Jinja Engine</h1>
+    <!-- for loop -->
+     <ul>
+        {% for eachfruit in fruits_list %}
+            <li>{{eachfruit}}</li>
+        {% endfor %}    
+     </ul>
+     <!-- conditional statement -->
+      {% if c in fruits_list %}
+        <p>Great! We have {{c}} today!</p>
+     {% else %}
+        <p>{{c}} is not in the list</p>
+    {% endif %}
+
+    {%extends "product.html"%}
+        {%block image%}../static/image1.jpg {%endblock%}
+        {%block imagetitle%} Mountain {%endblock%}
+        {%block cardinfo%} Text {%endblock%}
+
 </body>
 </html>

@@ -1,4 +1,4 @@
 Python Basics for data analysis
 Fredy Perez Vicente
 
-2025-10-14 15:35:42.245954
+2025-10-15 15:36:45.937517

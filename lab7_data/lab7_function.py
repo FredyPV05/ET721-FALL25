@@ -73,4 +73,3 @@ def email_read(filename, email):
             if email in filename:
                 count_email += 1
                 return count_email
-    print(count_email)

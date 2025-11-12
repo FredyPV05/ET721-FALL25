@@ -29,9 +29,8 @@ print("\n---- Example 7: Append data into an existing file ----")
 stamp_date("perez.txt")
 
 print("\n---- LAB EXERCISE ----")
-count_yahoo = email_read("user_email.txt","@yahoo")
-count_gmail = email_read("user_email.txt","@gmail")
-count_hotmail = email_read("user_email.txt","@hotmail")
+count_yahoo = email_read("user_email.txt", "@yahoo")
+count_gmail = email_read("user_email.txt", "@gmail")
+count_hotmail = email_read("user_email.txt", "@hotmail")
 
 new_file("reportemail.text")
-

@@ -5,6 +5,8 @@ Lab 6: objects and classes
 """
 
 print("\n----- Example 1: create a class -----")
+
+
 class Circle(object):
     def __init__(self, radius, color):
         self.radius = radius
@@ -15,6 +17,7 @@ class Circle(object):
         self.radius += r
         return self.radius
 
+
 class Rectangle(object):
     def __init__(self, height, width, color):
         self.height = height
@@ -24,17 +27,18 @@ class Rectangle(object):
     # method to calculate the area
     def area(self):
         return self.width * self.height
-    
+
     # method to calculate the perimeter
     def perimeter(self):
-        return 2*self.width + 2*self.height
+        return 2 * self.width + 2 * self.height
+
 
 # creating an instance of the class, which is an object
 circle1 = Circle(4, "red")
 circle2 = Circle(10, "green")
 
-rectangle1 = Rectangle(2,5,"magenta")
-rectangle2 = Rectangle(7,3,"blue")
+rectangle1 = Rectangle(2, 5, "magenta")
+rectangle2 = Rectangle(7, 3, "blue")
 
 # accessing information in an object
 print(f"The color of circle2 = {circle2.color}")
@@ -53,10 +57,14 @@ circle2.add_radius(5)
 print(f"Radius of circle2 after method add_radius = {circle2.radius}")
 
 # accessing methods in Rectangle
-print(f"The area of the rectangle1 with width {rectangle1.width} and height {rectangle1.height} is {rectangle1.area()}")
+print(
+    f"The area of the rectangle1 with width {rectangle1.width} and height {rectangle1.height} is {rectangle1.area()}"
+)
 print(f"The perimeter of rectangle2 = {rectangle2.perimeter()}")
 
 print("\n----- EXERCISE -----")
+
+
 class BankAccount(object):
     def __init__(self, number, holder, balance):
         self.number = number
@@ -67,7 +75,7 @@ class BankAccount(object):
     def withdraw(self, w):
         self.balance -= w
         return self.balance
-    
+
     def deposit(self, d):
         self.balance += d
         return self.balance

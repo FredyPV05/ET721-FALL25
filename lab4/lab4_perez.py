@@ -6,11 +6,7 @@ Sep 10, 2025
 
 print("----- Example 1: dictionary -----")
 # contact dictionary with three different users
-contacts = {
-    "Bill": "718-111-2222",
-    "Martha": "646-000-3333",
-    "Peter": "212-000-1111"
-}
+contacts = {"Bill": "718-111-2222", "Martha": "646-000-3333", "Peter": "212-000-1111"}
 
 print(contacts)
 
@@ -43,8 +39,8 @@ print("----- Example 3: length of a dictionary -----")
 print(f"Dictionary has {len(contacts)} users")
 
 print("----- Example 4: copy a dictionary -----")
-copy_contact1 = contacts.copy() # function
-copy_contact2 = dict(contacts) # method
+copy_contact1 = contacts.copy()  # function
+copy_contact2 = dict(contacts)  # method
 print(copy_contact1)
 print(copy_contact2)
 
@@ -55,7 +51,7 @@ print(contacts)
 
 print("----- Example 6: add a new key:value pair in a dictionary -----")
 print(contacts)
-contacts.update({"Lucas":"212-111-1111"})
+contacts.update({"Lucas": "212-111-1111"})
 print(contacts)
 
 print("----- Example 7: return items, keys, and values in a dictionary -----")
@@ -80,7 +76,15 @@ for word in word_count_dict:
     print(f"'{word}' appearance(s): {word_count_dict[word]}")
 
 print("----- EXERCISE -----")
-users = ["peterpan@yahoo.com","annie@hotmail.com","Carl@hotmail.com","martha@gmail.com","cassie@yahoo.com","Josue@hotmail.com","John@hotmail.com"]
+users = [
+    "peterpan@yahoo.com",
+    "annie@hotmail.com",
+    "Carl@hotmail.com",
+    "martha@gmail.com",
+    "cassie@yahoo.com",
+    "Josue@hotmail.com",
+    "John@hotmail.com",
+]
 
 users_count_dict = {}
 for user in users:
@@ -92,4 +96,3 @@ for user in users:
 # print result
 for user in users_count_dict:
     print(f"'{user}' instances: {users_count_dict[user]}")
-

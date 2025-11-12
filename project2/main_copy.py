@@ -3,34 +3,36 @@ Fredy Perez Vicente
 October 26, 2025
 Unit test for: drop_chip (Project 2 Part 2)
 """
+
 # Improved Connect 4 Game
 import unittest
+
 
 class Connect4:
     ROWS = 6
     COLS = 7
 
     def __init__(self):
-        self.board = [[' ' for _ in range(self.COLS)] for _ in range(self.ROWS)]
-        self.current_player = 'X'
+        self.board = [[" " for _ in range(self.COLS)] for _ in range(self.ROWS)]
+        self.current_player = "X"
 
     def switch_player(self):
-        self.current_player = 'O' if self.current_player == 'X' else 'X'
+        self.current_player = "O" if self.current_player == "X" else "X"
 
     def print_board(self):
         print("\nCurrent Board:")
         for row in self.board:
-            print('|', end='')
+            print("|", end="")
             for cell in row:
-                if cell == 'X':
-                    print('\033[91mX\033[0m', end='|')  # Red for X
-                elif cell == 'O':
-                    print('\033[94mO\033[0m', end='|')  # Blue for O
+                if cell == "X":
+                    print("\033[91mX\033[0m", end="|")  # Red for X
+                elif cell == "O":
+                    print("\033[94mO\033[0m", end="|")  # Blue for O
                 else:
-                    print(' ', end='|')
+                    print(" ", end="|")
             print()
-        print('---------------')
-        print(' 1 2 3 4 5 6 7')
+        print("---------------")
+        print(" 1 2 3 4 5 6 7")
 
     def drop_chip(self, column):
         """Drop a chip in the chosen column (1-7)."""
@@ -38,7 +40,7 @@ class Connect4:
             return False
 
         for row in range(self.ROWS - 1, -1, -1):
-            if self.board[row][column - 1] == ' ':
+            if self.board[row][column - 1] == " ":
                 self.board[row][column - 1] = self.current_player
                 return True
         return False  # Column full
@@ -73,7 +75,7 @@ class Connect4:
 
     def is_full(self):
         """Check if the board is full."""
-        return all(self.board[0][col] != ' ' for col in range(self.COLS))
+        return all(self.board[0][col] != " " for col in range(self.COLS))
 
     def play_game(self):
         """Main game loop."""
@@ -104,6 +106,7 @@ class Connect4:
 
             self.switch_player()
 
+
 # Unit tests for the drop_chip method in the Connect4 class
 class TestDropChip(unittest.TestCase):
     def setUp(self):
@@ -113,7 +116,11 @@ class TestDropChip(unittest.TestCase):
     def test_successful_chip_drop(self):
         result = self.game.drop_chip(3)
         self.assertTrue(result, "True for valid chip drop")
-        self.assertEqual(self.game.board[5][2], 'X', "Chip not placed correctly at bottom of column 3")
+        self.assertEqual(
+            self.game.board[5][2],
+            "X",
+            "Chip not placed correctly at bottom of column 3",
+        )
 
     # Full column test: The method returns False when trying to drop into a full column
     def test_full_column(self):
@@ -130,7 +137,7 @@ class TestDropChip(unittest.TestCase):
         self.assertFalse(self.game.drop_chip(0), "False for invalid column 0")
         # Above valid range
         self.assertFalse(self.game.drop_chip(8), "False for invalid column 8")
-    
+
     # Full board test: Test how the game behaves when the board is full, and no more chips can be dropped
     def test_full_board(self):
         # Fill the entire board
@@ -139,7 +146,10 @@ class TestDropChip(unittest.TestCase):
                 self.assertTrue(self.game.drop_chip(col))
         # Dropping again anywhere
         for col in range(1, self.game.COLS + 1):
-            self.assertFalse(self.game.drop_chip(col), f"False when board is full for column {col}")
+            self.assertFalse(
+                self.game.drop_chip(col), f"False when board is full for column {col}"
+            )
+
 
 if __name__ == "__main__":
     # Connect4().play_game()
